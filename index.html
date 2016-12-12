@@ -1,1 +1,40 @@
-Test
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://play.vidyard.com/v0/api.js"></script>
+
+    <script id="tmp" type="text/javscript">
+      function dostuff() {
+        console.log('do stuff', $('#cta_49431_477079:visible').length);
+        if ( !$('#cta_49431_477079:visible').length ) { return; }
+        document.getElementById('cta_49431_477079').contentWindow.API.closeCta({ disablePlay:false });
+      }
+
+      console.log('rawr');
+      dostuff();
+      setInterval(dostuff, 50);
+    </script>
+
+    <script type="text/javascript">
+      $(function() {
+        playerID = "HZrLt1PR6FjDj4QDTcQf7r";
+        video = new Vidyard.player(playerID);
+
+        video.on("ready", function() {
+          console.log('built');
+          setTimeout(function() {
+            console.log('update cta');
+            video.updateCta(49431, { html: "<script>" + $('#tmp').html() + "<" + "/script>" });
+          }, 5000);
+        });
+      })
+    </script>
+  </head>
+  <body>
+    test0
+    <script type="text/javascript" id="vidyard_embed_code_HZrLt1PR6FjDj4QDTcQf7r" src="//play.vidyard.com/HZrLt1PR6FjDj4QDTcQf7r.js?v=3.1.1&type=inline"></script>
+  </body>
+</html>
+
+
