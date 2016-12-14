@@ -2,13 +2,16 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://play.vidyard.com/v0/api.js"></script>
+    <script src="https://play-staging-ironman.vidyard.com/v0/api.js"></script>
 
     <script id="tmp" type="text/javscript">
       function dostuff() {
-        console.log('do stuff', $('#cta_49431_477079:visible').length);
-        if ( !$('#cta_49431_477079:visible').length ) { return; }
-        document.getElementById('cta_49431_477079').contentWindow.API.closeCta({ disablePlay:false });
+        console.log('do stuff', $('#cta_1570_32546:visible').length);
+
+        if ( !$('#cta_1570_32546:visible').length ) { return; }
+
+        //$('#cta_1570_32546').contents().get(1).contentWindow.API.closeCta({ disablePlay:false });
+        document.getElementById('cta_1570_32546').contentWindow.API.closeCta({ disablePlay:false });
       }
 
       console.log('rawr');
@@ -18,23 +21,21 @@
 
     <script type="text/javascript">
       $(function() {
-        playerID = "HZrLt1PR6FjDj4QDTcQf7r";
+        playerID = "Y3ieCHgoQjCxQ5CmwRigtk";
         video = new Vidyard.player(playerID);
 
         video.on("ready", function() {
           console.log('built');
           setTimeout(function() {
             console.log('update cta');
-            video.updateCta(49431, { html: "<script>" + $('#tmp').html() + "<" + "/script>" });
+            video.updateCta(1570, { html: "<script>" + $('#tmp').html() + "<" + "/script>" });
           }, 5000);
         });
       })
     </script>
   </head>
   <body>
-    test0
-    <script type="text/javascript" id="vidyard_embed_code_HZrLt1PR6FjDj4QDTcQf7r" src="//play.vidyard.com/HZrLt1PR6FjDj4QDTcQf7r.js?v=3.1.1&type=inline"></script>
+    test2
+    <script type="text/javascript" id="vidyard_embed_code_Y3ieCHgoQjCxQ5CmwRigtk" src="//play-staging-ironman.vidyard.com/Y3ieCHgoQjCxQ5CmwRigtk.js?v=3.1.1&type=inline"></script>
   </body>
 </html>
-
-
